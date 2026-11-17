@@ -50,17 +50,21 @@ int main()
         hp = 30;
         mana = 10;
         stamina = 15;
+        break;
     case 2:
         hp = 20;
         mana = 30;
         stamina = 10;
+        break;
     case 3:
         hp = 15;
         mana = 15;
         stamina = 30;
+        break;
     default:
-        printf("NOOOO, THAT'S NOT AN OPTIONNNN");
+        printf("[ERROR] '%s' is not a valid command.\n", character);
+        break;
     }
-    printf("%d,%d,%d", hp, mana, stamina);
+    printf("\n Your Stats are:\n HP %d\n Mana %d\n Stamina %d\n", hp, mana, stamina);
     return 0;
 }
