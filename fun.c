@@ -1,9 +1,31 @@
 #include <stdio.h>
-#include <stdlib.h>
+#include <time.h>
 
-int main() {
-    char character[6];
-    char knightstat[] = "HP 30, Mana 5, Stamina 15";
+int loader(){
+    int i,j,n = 0;
+    for(; i < 4; i++)
+    {
+        for(j = 0; j < 4; j++)
+        {
+            printf("\r                      ");
+            fflush(stdout);
+            printf("\rLoading Character");
+            printf("%.*s", j, "...");
+            fflush(stdout);
+            struct timespec req, rem;
+            req.tv_sec = 0;
+            req.tv_nsec = 300000000;
+
+            nanosleep(&req, &rem);
+        }
+    }
+    return 0;
+}
+
+int main() 
+{
+    int character;
+    char knightstat[] = "HP 30, Mana 10, Stamina 15";
     char magestat[] = "HP 20, Mana 30, Stamina 10";
     char archerstat[] = "HP 15, Mana 15, Stamina 30";
     FILE *file = fopen("models", "r");
@@ -16,8 +38,29 @@ int main() {
     }
     fclose(file);
     printf("\n");
-    printf("Choose Your Character: \n Knight:\t %s \n Mage:\t %s \n Archer: \t %s\n", knightstat, magestat, archerstat);
-    scanf("%6[^\n]", &character);
-    printf("%s\n", character);
+    printf("Choose Your Character: \n 1 Knight:\t %s \n 2 Mage:\t %s \n 3 Archer: \t %s\n", knightstat, magestat, archerstat);
+    scanf("%d", &character);
+    int hp;
+    int mana;
+    int stamina;
+    loader();
+    switch(character)
+    {
+    case 1:
+        hp = 30;
+        mana = 10;
+        stamina = 15;
+    case 2:
+        hp = 20;
+        mana = 30;
+        stamina = 10;
+    case 3:
+        hp = 15;
+        mana = 15;
+        stamina = 30;
+    default:
+        printf("NOOOO, THAT'S NOT AN OPTIONNNN");
+    }
+    printf("%d,%d,%d", hp, mana, stamina);
     return 0;
 }
