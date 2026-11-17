@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <time.h>
+#include <unistd.h>
 struct player {
     int hp;
     int mana;
@@ -15,7 +16,7 @@ struct boss{
     int dmg;
 };
 int loader(char word[]){
-    int i,j,n = 0;
+    int i,j = 0;
     for(i = 0; i < 5; i++)
     {
         for(j = 0; j < 4; j++)
@@ -117,6 +118,7 @@ int main()
     }
 
     printf("\n-----------\nYour Stats are:\nHP %d\nMana %d\nStamina %d\n", stats.hp, stats.mana, stats.stm);
+    sleep(5); 
 
     struct boss spider;
     loader("First Enemy");
@@ -136,10 +138,10 @@ int main()
         printf("Spider: %dHP \nYou: %dHP, %d Energy, %d Mana\n", spider.hp, hp, energy, mana);
     } while(spider.hp > 0 & hp > 0);
     if(spider.hp <= 0){
-        printf("You killed the Spider!!");
+        printf("You killed the Spider!!\n");
     }
     if(hp <= 0){
-        printf("You died :<");
+        printf("You died :<\n");
     }
     return 0;
 }
