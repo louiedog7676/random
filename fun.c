@@ -38,7 +38,7 @@ int main()
     }
     fclose(file);
     printf("\n");
-    printf("Choose Your Character: \n 1 Knight:\t %s \n 2 Mage:\t %s \n 3 Archer: \t %s\n", knightstat, magestat, archerstat);
+    printf("Choose Your Character: \n 1 Knight:\t Attacks with High Damage | %s \n 2 Mage:\t Attacks with Short Range and Damage | %s \n 3 Archer: \t Attacks with Long Range | %s\n", knightstat, magestat, archerstat);
     scanf("%d", &character);
     int hp;
     int mana;
